@@ -15,10 +15,6 @@
    (excludes :accessor app-excludes
 	     :initarg :app-excludes)))
 
-(defmethod initialize-instance :after ((cas cas-client) &key)
-  (when (not (slot-boundp cas 'logout-url))
-    (setf (slot-value cas 'logout-url) (slot-value cas 'url))))
-
 (defmethod route-excludedp ((cas cas-client) route)
   (find route (app-excludes cas) :test #'string=))
 
