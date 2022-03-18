@@ -16,7 +16,8 @@
 	     :initarg :app-excludes)))
 
 (defmethod route-excludedp ((cas cas-client) route)
-  (find route (app-excludes cas) :test #'string=))
+  (find route (app-excludes cas)
+        :test #'(lambda (pattern) (ppcre:scan-to-strings (format nil "^~a.*$" pattern) route))))
 
 (defmethod cas-login ((cas cas-client) quri)
   (let ((request-path (quri:uri-path quri))
