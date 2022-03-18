@@ -3,7 +3,7 @@
   :author "Frédéric FERRERE"
   :license "Apache-2.0"
   :description "Lack MiddleWare Authentication CAS package"
-  :depends-on ("alexandria" "cl-ppcre" "cl-cas" "split-sequence" "quri")
+  :depends-on ("alexandria" "cl-cas" "split-sequence" "quri")
   :components ((:module "src"
                 :components
                 ((:file "package")
